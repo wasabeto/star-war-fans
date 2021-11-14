@@ -1,0 +1,10 @@
+@import './../../style/variables';
+
+a {
+  background-color: transparent;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  padding: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}

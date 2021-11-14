@@ -1,0 +1,40 @@
+@import "variables";
+
+table {
+  border: 1px solid $primary-color;
+  width: 100%;
+
+  tr {
+    text-align: left;
+    height: 40px;
+    min-height: 40px;
+
+    th,td {
+      padding: 0 5px 0 5px;
+
+      &.text-center {
+        text-align: center;
+      }
+    }
+  }
+
+  thead {
+    tr {
+      color: $primary-color;
+
+      th {
+        border-bottom: 1px solid $primary-color;
+      }
+    }
+  }
+
+  tbody {
+    tr:hover {
+      background-color: rgba(166, 152, 0, 0.1)
+    }
+
+    tr td.no-results {
+      text-align: center;
+    }
+  }
+}

@@ -1,29 +1,100 @@
-<p>starship-detail works!</p>
+<div *ngIf="starship" class="header page-title">
+  <h2>{{starship.name}}</h2>
+</div>
 
-<ul *ngIf="starship">
-  <li class="name">name: {{starship.name}}</li>
-  <li>MGLT: {{starship.MGLT}}</li>
-  <li>cargoCapacity: {{starship.cargo_capacity}}</li>
-  <li>consumables: {{starship.consumables}}</li>
-  <li>costInCredits: {{starship.cost_in_credits}}</li>
-  <li>created: {{starship.created}}</li>
-  <li>crew: {{starship.crew}}</li>
-  <li>edited: {{starship.edited}}</li>
-  <li>hyperdriveRating: {{starship.hyperdrive_rating}}</li>
-  <li>length: {{starship.length}}</li>
-  <li>manufacturer: {{starship.manufacturer}}</li>
-  <li>maxAtmospheringSpeed: {{starship.max_atmosphering_speed}}</li>
-  <li>model: {{starship.model}}</li>
-  <li>name: {{starship.name}}</li>
-  <li>passengers: {{starship.passengers}}</li>
-  <li>starshipClass: {{starship.starship_class}}</li>
-</ul>
+<div class="flex">
+  <div class="flex-content">
+    <div class="header page-subtitle">
+      <h3>Detail</h3>
+    </div>
+    <div *ngIf="starship" class="detail-content">
+      <div class="detail-content-line">
+        <div class="subtitle">Name:</div>
+        <div class="description name">{{starship.name}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">MGLT:</div>
+        <div class="description">{{starship.MGLT}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Cargo Capacity:</div>
+        <div class="description">{{starship.cargo_capacity}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Consumables:</div>
+        <div class="description">{{starship.consumables}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Cost In Credits:</div>
+        <div class="description">{{starship.cost_in_credits}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Created:</div>
+        <div class="description">{{starship.created | date}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Crew:</div>
+        <div class="description">{{starship.crew}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Edited:</div>
+        <div class="description">{{starship.edited | date}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Hyperdrive Rating:</div>
+        <div class="description">{{starship.hyperdrive_rating}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Length:</div>
+        <div class="description">{{starship.length}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Manufacturer:</div>
+        <div class="description">{{starship.manufacturer}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Max Atmosphering Speed:</div>
+        <div class="description">{{starship.max_atmosphering_speed}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Model:</div>
+        <div class="description">{{starship.model}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Passengers:</div>
+        <div class="description">{{starship.passengers}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Starship Class:</div>
+        <div class="description">{{starship.starship_class}}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pilots" class="flex-content">
+    <div class="header page-subtitle">
+      <h3>Pilots</h3>
+    </div>
 
-<hr>
-
-<ul *ngIf="pilots">
-  <li *ngFor="let pilot of pilots; trackBy: pilotTrackFn" class="pilots">
-    <a routerLink="/pilot/{{pilot.id}}">{{ pilot.name }}</a>
-  </li>
-</ul>
-
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="text-center">Gender</th>
+          <th class="text-center">Vehicles</th>
+          <th class="text-center">Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="pilots.length == 0">
+          <td colspan="5" class="no-results">No pilots were found</td>
+        </tr>
+        <tr *ngFor="let pilot of pilots; trackBy: pilotTrackFn" class="pilots">
+          <td><a routerLink="/pilot/{{pilot.id}}">{{ pilot.name }}</a></td>
+          <td class="text-center">{{pilot.gender}}</td>
+          <td class="text-center">{{pilot.vehicles.length}}</td>
+          <td class="text-center">{{pilot.created | date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

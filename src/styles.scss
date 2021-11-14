@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'style/variables';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+div {
+  &.header {
+    border-bottom: 1px solid white;
+  }
+
+  .page-title {
+    margin-bottom: 40px;
+  }
+
+  .page-subtitle {
+    margin-bottom: 20px;
+  }
+}
+
+.subtitle {
+  font-weight: bold;
+}
+
+div.detail-content {
+  display: flex;
+  flex-direction: column;
+
+  div.detail-content-line {
+    display: flex;
+    justify-content: space-between;
+  }
+}

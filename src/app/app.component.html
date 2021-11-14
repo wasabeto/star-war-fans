@@ -1,7 +1,18 @@
-<h1>{{title}}</h1>
-<h1 *ngIf="loading">Fetching data...</h1>
+<main>
+  <header aria-label="Banner">
+    <div class="header">
+      <img src="./../assets/logo.png" alt="{{title}}" class="logo">
+      <h1>{{title}}</h1>
+    </div>
+  </header>
 
-<app-breadcrumb></app-breadcrumb>
+  <nav aria-label="control">
+    <app-breadcrumb></app-breadcrumb>
+  </nav>
 
-<hr>
-<router-outlet></router-outlet>
+  <section aria-label="Content">
+    <h1 *ngIf="loading">Fetching data...</h1>
+    <router-outlet></router-outlet>
+  </section>
+</main>
+

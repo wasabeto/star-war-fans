@@ -1,0 +1,28 @@
+main,
+header,
+section,
+nav {
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #000000;
+  color: #ffffff;
+}
+
+main {
+  height: 100%;
+}
+
+header {
+  h1 {
+    text-transform: uppercase;
+  }
+
+  .header {
+    display: flex;
+
+    img.logo {
+      width: 100px;
+      margin-right: 10px;
+    }
+  }
+}

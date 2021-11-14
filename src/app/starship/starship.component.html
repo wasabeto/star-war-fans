@@ -1,21 +1,24 @@
-<h2>Starships</h2>
+<div class="page-title">
+  <h2>Starships</h2>
+</div>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Model</th>
       <th>Manufacturer</th>
-      <th>Passengers</th>
-      <th>Pilots</th>
+      <th class="text-center">Passengers</th>
+      <th class="text-center">Pilots</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let starship of starships$ | async; trackBy: starshipTrackFn" class="starship">
-      <th><a routerLink="/starship/{{starship.id}}">{{starship.name}}</a></th>
-      <th>{{starship.model}}</th>
-      <th>{{starship.manufacturer}}</th>
-      <th>{{starship.passengers}}</th>
-      <th>{{starship.pilots.length}}</th>
+      <td><a routerLink="/starship/{{starship.id}}">{{starship.name}}</a></td>
+      <td>{{starship.model}}</td>
+      <td>{{starship.manufacturer}}</td>
+      <td class="text-center">{{starship.passengers}}</td>
+      <td class="text-center">{{starship.pilots.length}}</td>
     </tr>
   </tbody>
 </table>
