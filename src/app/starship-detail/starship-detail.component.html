@@ -1,0 +1,29 @@
+<p>starship-detail works!</p>
+
+<ul *ngIf="starship">
+  <li class="name">name: {{starship.name}}</li>
+  <li>MGLT: {{starship.MGLT}}</li>
+  <li>cargoCapacity: {{starship.cargo_capacity}}</li>
+  <li>consumables: {{starship.consumables}}</li>
+  <li>costInCredits: {{starship.cost_in_credits}}</li>
+  <li>created: {{starship.created}}</li>
+  <li>crew: {{starship.crew}}</li>
+  <li>edited: {{starship.edited}}</li>
+  <li>hyperdriveRating: {{starship.hyperdrive_rating}}</li>
+  <li>length: {{starship.length}}</li>
+  <li>manufacturer: {{starship.manufacturer}}</li>
+  <li>maxAtmospheringSpeed: {{starship.max_atmosphering_speed}}</li>
+  <li>model: {{starship.model}}</li>
+  <li>name: {{starship.name}}</li>
+  <li>passengers: {{starship.passengers}}</li>
+  <li>starshipClass: {{starship.starship_class}}</li>
+</ul>
+
+<hr>
+
+<ul *ngIf="pilots">
+  <li *ngFor="let pilot of pilots; trackBy: pilotTrackFn" class="pilots">
+    <a routerLink="/pilot/{{pilot.id}}">{{ pilot.name }}</a>
+  </li>
+</ul>
+

@@ -1,9 +1,7 @@
 <h1>{{title}}</h1>
 <h1 *ngIf="loading">Fetching data...</h1>
 
+<app-breadcrumb></app-breadcrumb>
+
 <hr>
 <router-outlet></router-outlet>
-
-{{starships$ | async}}
-<hr>
-{{pilots$ | async}}

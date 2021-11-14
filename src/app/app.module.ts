@@ -7,9 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pilotReducer } from './store/pilot.reducer';
 import { starshipReducer } from './store/starship.reducer';
+import { StarshipComponent } from './starship/starship.component';
+import { StarshipDetailComponent } from './starship-detail/starship-detail.component';
+import { PilotDetailComponent } from './pilot-detail/pilot-detail.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, StarshipComponent, StarshipDetailComponent, PilotDetailComponent, BreadcrumbComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

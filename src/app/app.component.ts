@@ -15,7 +15,6 @@ import { selectPilotAllSelector } from './store/pilot.selector';
 export class AppComponent implements OnInit {
   title = 'Star Wars fans';
   loading: boolean = true;
-  starships$ = this.store.select(selectStarshipAllSelector);
   pilots$ = this.store.select(selectPilotAllSelector);
 
   constructor(private appService: AppService, private store: Store) {}
