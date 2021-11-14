@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Starship } from './app.model';
+import { Pilot, Starship } from './store/app.model';
 import { AppService } from './app.service';
+import { select, Store } from '@ngrx/store';
+import { getStarshipAll } from './store/starship.action';
+import { getPilotAll } from './store/pilot.action';
+import { selectStarshipAllSelector } from './store/starship.selector';
+import { selectPilotAllSelector } from './store/pilot.selector';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +15,29 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   title = 'Star Wars fans';
   loading: boolean = true;
+  starships$ = this.store.select(selectStarshipAllSelector);
+  pilots$ = this.store.select(selectPilotAllSelector);
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService, private store: Store) {}
 
   ngOnInit(): void {
     let starships: Starship[] = [];
-    // Subscribe to get all responses and build the Starship model
+    // Subscribe to get all responses and build the Starship list
     this.appService.getStarshipAll().subscribe((res) => {
       starships = [...starships, ...res.results];
+      // Stop condition. Now all starships have been loaded
       if (starships.length == res.count) {
-        console.log('All starships have been loaded...');
-        this.loading = false;
+        // Get the pilot list in a separate array since a pilot can be in different starships
+        // Load each pilot once
+        let pilotUrlList: Array<string> = [];
+        starships.forEach((s) => (pilotUrlList = [...pilotUrlList, ...s.pilots]));
+        // Store the loaded starship using NgRx
+        this.store.dispatch(getStarshipAll({ starships }));
+        this.appService.getPilotsByUrl([...new Set(pilotUrlList)]).subscribe((pilots: Pilot[]) => {
+          // Store the loaded pilots using NgRx
+          this.store.dispatch(getPilotAll({ pilots }));
+          this.loading = false;
+        });
       }
     });
   }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, forkJoin, from, Observable, of } from 'rxjs';
 import { catchError, expand, map } from 'rxjs/operators';
-import { Pilot } from './app.model';
+import { Pilot } from './store/app.model';
 
 @Injectable({
   providedIn: 'root',

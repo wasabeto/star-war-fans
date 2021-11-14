@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { createSpyFromClass, Spy } from 'jasmine-auto-spies';
-import { Pilot, Starship } from './app.model';
+import { Pilot, Starship } from './store/app.model';
 import { AppService } from './app.service';
 import { pilotList, starshipList } from './helpers/app.helper';
 

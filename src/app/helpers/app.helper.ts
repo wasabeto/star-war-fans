@@ -1,4 +1,4 @@
-import { Pilot, Starship } from '../app.model';
+import { Pilot, Starship } from '../store/app.model';
 
 export const starshipList: Starship[] = [
   {
