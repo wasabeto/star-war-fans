@@ -2,8 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { Pilot } from '../store/app.model';
+import { Pilot, Planet } from '../store/app.model';
 import { selectPilotAllSelector } from '../store/pilot.selector';
+import { selectPlanetAllSelector } from '../store/planet.selector';
 
 @Component({
   selector: 'app-pilot-detail',
@@ -12,9 +13,11 @@ import { selectPilotAllSelector } from '../store/pilot.selector';
 })
 export class PilotDetailComponent implements OnInit, OnDestroy {
   pilot?: Pilot;
+  planet?: Planet;
 
   private subscriptions: Subscription[] = [];
   pilots$: Observable<readonly Pilot[]> = this.store.select(selectPilotAllSelector);
+  planets$: Observable<readonly Planet[]> = this.store.select(selectPlanetAllSelector);
 
   constructor(private store: Store, private route: ActivatedRoute) {}
 
@@ -23,6 +26,11 @@ export class PilotDetailComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.pilots$.subscribe((pilots: readonly Pilot[]) => {
         this.pilot = pilots.find((p) => p.id == id);
+        this.subscriptions.push(
+          this.planets$.subscribe((planets: readonly Planet[]) => {
+            this.planet = planets.find((pl) => pl.url == this.pilot?.homeworld);
+          })
+        );
       })
     );
   }

@@ -3,8 +3,9 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AppService } from './app.service';
-import { Pilot, Starship } from './store/app.model';
+import { Pilot, Planet, Starship } from './store/app.model';
 import { getPilotAll } from './store/pilot.action';
+import { getPlanetAll } from './store/planet.action';
 import { getStarshipAll } from './store/starship.action';
 
 @Component({
@@ -39,9 +40,18 @@ export class AppComponent implements OnInit, OnDestroy {
             .getPilotsByUrl([...new Set(pilotUrlList)])
             .pipe(takeUntil(this.ngUnsubscribeAll))
             .subscribe((pilots: Pilot[]) => {
+              // Get the planet list in a separate array since a same planet could be a homeworld of different pilots
+              let planetUrlList: Array<string> = pilots.map((p) => p.homeworld);
               // Store the loaded pilots using NgRx
               this.store.dispatch(getPilotAll({ pilots }));
-              this.loading = false;
+              this.appService
+                .getPlanetsByUrl([...new Set(planetUrlList)])
+                .pipe(takeUntil(this.ngUnsubscribeAll))
+                .subscribe((planets: Planet[]) => {
+                  // Store the loaded pilots using NgRx
+                  this.store.dispatch(getPlanetAll({ planets }));
+                  this.loading = false;
+                });
             });
         }
       });

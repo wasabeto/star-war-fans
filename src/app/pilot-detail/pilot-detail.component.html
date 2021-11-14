@@ -2,70 +2,136 @@
   <h2>{{pilot.name}}</h2>
 </div>
 
-<div *ngIf="pilot" class="detail-content">
-  <div class="detail-content-line">
-    <div class="subtitle">Name:</div>
-    <div class="description name">{{pilot.name}}</div>
+<div class="flex">
+  <div class="flex-content">
+    <div *ngIf="pilot" class="detail-content">
+      <div class="detail-content-line">
+        <div class="subtitle">Name:</div>
+        <div class="description name">{{pilot.name}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Birth Year:</div>
+        <div class="description">{{pilot.birth_year}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Eye Color:</div>
+        <div class="description">{{pilot.eye_color}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Films:</div>
+        <div class="description">{{pilot.films.length}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Gender:</div>
+        <div class="description">{{pilot.gender}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Hair Color:</div>
+        <div class="description">{{pilot.hair_color}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Height:</div>
+        <div class="description">{{pilot.height}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Home World:</div>
+        <div class="description">{{pilot.homeworld}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Mass:</div>
+        <div class="description">{{pilot.mass}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Skin Color:</div>
+        <div class="description">{{pilot.skin_color}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Created:</div>
+        <div class="description">{{pilot.created | date}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Edited:</div>
+        <div class="description">{{pilot.edited | date}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Species:</div>
+        <div class="description">{{pilot.species.length}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Starships:</div>
+        <div class="description">{{pilot.starships.length}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Url:</div>
+        <div class="description">{{pilot.url}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Vehicles:</div>
+        <div class="description">{{pilot.vehicles.length}}</div>
+      </div>
+    </div>
   </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Birth Year:</div>
-    <div class="description">{{pilot.birth_year}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Eye Color:</div>
-    <div class="description">{{pilot.eye_color}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Films:</div>
-    <div class="description">{{pilot.films.length}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Gender:</div>
-    <div class="description">{{pilot.gender}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Hair Color:</div>
-    <div class="description">{{pilot.hair_color}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Height:</div>
-    <div class="description">{{pilot.height}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Home World:</div>
-    <div class="description">{{pilot.homeworld}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Mass:</div>
-    <div class="description">{{pilot.mass}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Skin Color:</div>
-    <div class="description">{{pilot.skin_color}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Created:</div>
-    <div class="description">{{pilot.created | date}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Edited:</div>
-    <div class="description">{{pilot.edited | date}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Species:</div>
-    <div class="description">{{pilot.species.length}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Starships:</div>
-    <div class="description">{{pilot.starships.length}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Url:</div>
-    <div class="description">{{pilot.url}}</div>
-  </div>
-  <div class="detail-content-line">
-    <div class="subtitle">Vehicles:</div>
-    <div class="description">{{pilot.vehicles.length}}</div>
+  <div class="flex-content">
+    <div *ngIf="planet" class="detail-content">
+      <div class="header page-subtitle">
+        <h3>Homeworld</h3>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Name:</div>
+        <div class="description">{{planet.name}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Rotation period:</div>
+        <div class="description">{{planet.rotation_period}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Orbital period:</div>
+        <div class="description">{{planet.orbital_period}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Diameter:</div>
+        <div class="description">{{planet.diameter}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Climate:</div>
+        <div class="description">{{planet.climate}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Gravity:</div>
+        <div class="description">{{planet.gravity}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Terrain:</div>
+        <div class="description">{{planet.terrain}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Surface water:</div>
+        <div class="description">{{planet.surface_water}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Population:</div>
+        <div class="description">{{planet.population}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Residents:</div>
+        <div class="description">{{planet.residents}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Films:</div>
+        <div class="description">{{planet.films.length}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Created:</div>
+        <div class="description">{{planet.created | date}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">Edited:</div>
+        <div class="description">{{planet.edited | date}}</div>
+      </div>
+      <div class="detail-content-line">
+        <div class="subtitle">URL:</div>
+        <div class="description">{{planet.url}}</div>
+      </div>
+    </div>
   </div>
 </div>
-

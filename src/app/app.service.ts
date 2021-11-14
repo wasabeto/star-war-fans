@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, forkJoin, from, Observable, of } from 'rxjs';
 import { catchError, expand, map } from 'rxjs/operators';
-import { Pilot } from './store/app.model';
+import { Pilot, Planet } from './store/app.model';
 
 @Injectable({
   providedIn: 'root',
@@ -52,5 +52,10 @@ export class AppService {
       }),
       catchError(() => of([]))
     );
+  }
+
+  // I'm using forkJoin operator to load all the pilot for once
+  getPlanetsByUrl(urlList: string[]): Observable<Planet[]> {
+    return forkJoin(urlList.map((url) => this.http.get<Planet>(url))).pipe(catchError(() => of([])));
   }
 }

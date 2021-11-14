@@ -1,26 +1,3 @@
 @import './../../style/variables';
 @import './../../style/table';
-
-div.flex {
-  display: flex;
-  justify-content: space-around;
-
-  div.flex-content {
-    margin: 10px;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  div.flex {
-    justify-content: flex-start;
-    flex-direction: column;
-
-    div {
-      margin: 10px;
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+@import './../../style/flex';

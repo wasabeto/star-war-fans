@@ -11,6 +11,7 @@ import { StarshipComponent } from './starship/starship.component';
 import { StarshipDetailComponent } from './starship-detail/starship-detail.component';
 import { PilotDetailComponent } from './pilot-detail/pilot-detail.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { planetReducer } from './store/planet.reducer';
 
 @NgModule({
   declarations: [AppComponent, StarshipComponent, StarshipDetailComponent, PilotDetailComponent, BreadcrumbComponent],
@@ -21,6 +22,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     StoreModule.forRoot({
       starships: starshipReducer,
       pilots: pilotReducer,
+      planets: planetReducer,
     }),
   ],
   providers: [],
